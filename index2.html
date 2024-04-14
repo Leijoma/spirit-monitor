@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   
+    <title>SignalKApp</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      @font-face {
+        font-family: 'Futura';
+        src:
+             url('./assets/assets/fonts/futura/futura-medium-bt.ee64fb9d3f1ba2333e1b489283925bce.ttf') format('ttf');
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+      .container {
+    display: flex;
+    height: 100%;
+    }
+    .left-div {
+      width: 60px; /* Adjust as needed to fit square buttons */
+      background-color: #333; /* Dark gray background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+    }
+    .left-div button {
+      background-color: #555; /* Darker gray for buttons */
+      border: none; /* Remove border */
+      color: white; /* Text color */
+      margin: 0; /* Remove margins */
+      width: 58px; /* Square shape */
+      height: 40px; /* Square shape */
+      margin-bottom: 5px; /* Small space between buttons */
+      cursor: pointer; /* Cursor indicates clickable item */
+      font-family: 'Futura', sans-serif;
+    }
+    .left-div button:last-child {
+      margin-bottom: 0; /* Remove bottom margin from the last button */
+    }
+    .right-div {
+      padding-top: 30;
+      flex-grow: 1;
+      background-color: #000;
+    }
+  
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove the border for a cleaner look */
+    }
+     /* Media query for screens less than 500px wide */
+  @media (max-width: 500px) {
+    .container {
+      flex-direction: column-reverse; /* Stack vertically and move left-div (now footer) to bottom */
+      height: 100vh; /* Use the full viewport height */
+    }
+    .left-div, .right-div {
+      width: 100%; /* Full width for small screens */
+    }
+    .left-div {
+      flex-direction: row;
+      height: 60px; /* Adjust based on content */
+      justify-content: center; /* Center buttons vertically */
+      padding-top: 0; /* Remove padding at the top */
+    }
+    .right-div {
+      flex-grow: 1;
+      overflow: auto; /* Add scroll if content is larger than available space */
+    }
+    
+  }
+  </style>
+  <link rel="shortcut icon" href="/spirit-monitor/favicon.ico" /></head>
+
+  <body>
+  
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div class="container">
+    <div class="left-div">
+      <!-- Left content goes here -->
+      <button onclick="location.reload();">Reload</button>
+      <button onclick="loadContent('http://192.168.1.211:3000/spirit-monitor/index.html')">Spirit</button>
+      <button onclick="loadContent('http://192.168.1.211:3000')">Server</button>
+     
+    <div class="right-div">
+      <!-- Right content goes here -->
+      <iframe  id="contentFrame" src="http://192.168.1.211:3000/spirit-monitor/index.html"></iframe>
+   
+    </div>
+  </div>
+    
+  
+  
+  <script src="/spirit-monitor/_expo/static/js/web/AppEntry-b0855f781b3627ddd92a1fc6caa780cf.js" defer></script>
+  <script>  
+    function loadContent(url) {
+      document.getElementById('contentFrame').src = url;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+TODO
+
+lägg till async storage så att det går att lagrea widget settings och server settings
