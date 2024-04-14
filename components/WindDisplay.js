@@ -15,6 +15,7 @@ import InnerRing from '../assets/svgDials/InnerRing';
 import Laylines from '../assets/svgDials/Laylines';
 import WaypointDirection from '../assets/svgDials/WaypointDirection';
 import CogDial from '../assets/svgDials/CogDial';
+import TideArrow from '../assets/svgDials/TideArrow'
 
 //export default function AnalogMeter({ name, value, unit='%', source}) {
 
@@ -175,10 +176,7 @@ import CogDial from '../assets/svgDials/CogDial';
                         <View style={{position : "absolute", x : 0, y : 0}} >
                             <Boat cx={70} cy={40}/>
                         </View>   
-                        <View style={{position : "absolute", x : 0, y : 0}} >
-                            <TideArrow ={70} cy={40}/>
-                        </View> 
-                        
+                       
                         <View style={{position : "absolute", x : 0, y : 0}} >
                             <CogDial value={10}/>
                         </View>   
@@ -186,11 +184,15 @@ import CogDial from '../assets/svgDials/CogDial';
                             <AwdDial value={age*-10}/>
                         </View>  
                         <View style={{position : "absolute", x : 0, y : 0}} >
+                            <Laylines value={age*-10} tackAngle={35}/>
+                        </View> 
+                        <View style={{position : "absolute", x : 0, y : 0}} >
                             <TwdDial value={age*-5}/>
                         </View>   
                         <View style={{position : "absolute", x : 0, y : 0}} >
-                            <Laylines value={age*-10} tackAngle={35}/>
+                            <TideArrow currentDirection={45} currentSpeed ={3} />
                         </View> 
+                    
                         <View style={{position : "absolute", x : 0, y : 0}} >
                             <WaypointDirection value={age*12}/>
                         </View>   
