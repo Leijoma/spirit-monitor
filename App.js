@@ -23,6 +23,7 @@ import BaseComponent from './components/layout/Base';
 import { LayoutProvider } from './components/layout/layoutContext';
 import  Header  from './components/Header';
 import AnalogMeter from './components/AnalogMeter';
+import SailPanel from './components/SailPanel';
 
 export default function App() {
  
@@ -40,16 +41,16 @@ export default function App() {
           <View style={styles.container}>
             <Header />
             <View style={{flexWrap : 'wrap',flex : 1, flexDirection : 'row', alignItems : 'flex-start', alignContent : 'flex-start'}}>    
-              <ScrollView horizontal={true}>
-                <EditSignalKSettings />
+            {  /*<ScrollView horizontal={true}> */}
+              
                 <Serversettings />
                 <BatteryPanel />
                 <EnginePanel />
               
                 <WaterPanel />
-                <WindDisplay rotate={0}/>
+                <SailPanel />
               
-              </ScrollView>
+           { /*   </ScrollView> */}
               <StatusBar style="auto" />
             </View>
             <View style={styles.footer}>

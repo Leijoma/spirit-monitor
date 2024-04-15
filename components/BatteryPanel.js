@@ -38,7 +38,7 @@ export default function BatteryPanel() {
      }, [])
 
     useEffect(() => {
-        //console.log('energyPanel paths updated')   
+        console.log('energyPanel paths updated')   
         
         // calculate currents
 

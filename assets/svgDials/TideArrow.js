@@ -50,7 +50,7 @@ const TideArrow = ({ currentDirection, currentSpeed }) => {
               </Svg>
           </Animated.View>
           <View style={{position : "absolute", top:95, left: 0, width : 200, backgroundColor : "transparent", flexDirection : "column", alignItems : "center"}}>
-            <Text style={{color : 'white'}}>8.8</Text>
+            <Text style={{color : 'white'}}>{currentSpeed}</Text>
           </View>
          
         </View>

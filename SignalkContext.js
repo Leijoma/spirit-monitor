@@ -299,6 +299,14 @@ export const SignalkProvider = ({ children }) => {
   }, []);
 
  
+  const addSetting = (key) => {
+    setSettings(prevSettings => ({
+      ...prevSettings,
+      [key]: { path : "",label : "",unit : "", decimals : 2,constant : 0,multiplier : 1,timeoput : 10}
+    }));
+  };
+
+ 
 
   const saveSettings = async (newSettings) => {
     console.log("Saving settings:", newSettings); // Before saving
@@ -337,7 +345,7 @@ export const SignalkProvider = ({ children }) => {
 
   
   return (
-    <SignalkContext.Provider value={{ data, isConnected, fetchMetadata, serverUrl,settings, serverSettings, saveServerSettings, saveSettings }}>
+    <SignalkContext.Provider value={{ data, isConnected, fetchMetadata, serverUrl,settings, serverSettings, saveServerSettings, saveSettings ,addSetting}}>
       {children}
     </SignalkContext.Provider>
   );

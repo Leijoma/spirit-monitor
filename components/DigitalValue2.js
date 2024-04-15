@@ -9,7 +9,7 @@ export default function DigitalValue2({source}) {
    
     
    
-    const { data, settings, isConnected, fetchMetadata, serverUrl } = useContext(SignalkContext);
+    const { data, settings, isConnected, fetchMetadata, serverUrl, addSetting } = useContext(SignalkContext);
     const [age,setAge] = useState(0)
     const [itemSettings,setItemSettings] = useState({})
     
@@ -27,8 +27,10 @@ export default function DigitalValue2({source}) {
             setItemSettings(ls)
             console.log("DigitalValue2 settings: "+JSON.stringify(settings[source]))
         }
-        else 
-            alert("Source "+source+" not found, check your source list.")
+        else {
+            addSetting(source)
+        }
+          
     }, [settings])
 
     useEffect(() => {
@@ -100,12 +102,12 @@ export default function DigitalValue2({source}) {
             </View>
            
             <SettingsModal
-            visible={modalVisible}
-            onClose={() => setModalVisible(false)}
-            settingsArray={[itemSettings]} // Pass the settings array here
-            onSave={(updatedSettings) => {
-                // Implement saving logic for the updated settings array
-            }}
+                visible={modalVisible}
+                onClose={() => setModalVisible(false)}
+                settingsArray={[itemSettings]} // Pass the settings array here
+                onSave={(updatedSettings) => {
+                    // Implement saving logic for the updated settings array
+                }}
             />
            </View>
            </TouchableOpacity>
